@@ -830,8 +830,20 @@ def leikir():
     def mylla():
         reset()
         homeT()
+    def sbs():
+        for a in root.winfo_children():
+            a.destroy()
+        button_1 = Button(root, text="Skæri", command = skaeri)
+        button_2 = Button(root, text="Blað", command = blad)
+        button_3 = Button(root, text="Steinn", command = steinn)
+
+        button_1.grid(row=1,column=1)
+        button_2.grid(row=2, column=1)
+        button_3.grid(row=3, column=1)
+
+
     label_1 = Label(root, text="Veldu hvað þú vilt gera")
-    button_1 = Button(root, text=" Skæri, blað, steinn ", command="")
+    button_1 = Button(root, text=" Skæri, blað, steinn ", command=sbs)
     button_2 = Button(root, text=" Mylla ", command=mylla)
     button_3 = Button(root, text=" *Unactive* ", command="")
     button_4 = Button(root, text=" Til baka ", command=home)

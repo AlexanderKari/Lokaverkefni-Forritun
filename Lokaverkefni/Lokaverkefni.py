@@ -188,10 +188,143 @@ def thry():
     button_4.grid(row=1, column=4)
     label_1.grid(columnspan=5)
 
+def kula():
+    for a in root.winfo_children():
+        a.destroy()
+    def rummal():
+        for a in root.winfo_children():
+            a.destroy()
+        def reikna():
+            radius = float(entry_1.get())
 
+
+            svar = (4*math.pi*radius**3)/3
+
+            label_2.configure(text=round(svar, 2))
+
+        label_1 = Label(root, text=" Sláðu inn radíus ")
+        label_2 = Label(root, text="")
+        label_3 = Label(root, text="Svar:")
+
+        entry_1 = Entry(root, textvariable=StringVar())
+
+        label_1.grid(row=1, column=1)
+        label_2.grid(row=2, column=2)
+        label_3.grid(row=2, column=1)
+
+
+        entry_1.grid(row=1, column=2)
+
+        button_1 = Button(root, text=" Reikna ", command=reikna)
+        button_1.grid(columnspan=2)
+
+        button_2 = Button(root, text=" Til baka ", command=kula)
+        button_2.grid(columnspan=3)
+
+
+    def yfirflat():
+        for a in root.winfo_children():
+            a.destroy()
+        def reikna():
+            radius = float(entry_1.get())
+
+            svar = (4 * math.pi * radius ** 2)
+
+            label_2.configure(text=round(svar, 2))
+
+        label_1 = Label(root, text=" Sláðu inn radíus ")
+        label_2 = Label(root, text="")
+        label_3 = Label(root, text="Svar:")
+
+        entry_1 = Entry(root, textvariable=StringVar())
+
+        label_1.grid(row=1, column=1)
+        label_2.grid(row=2, column=2)
+        label_3.grid(row=2, column=1)
+
+        entry_1.grid(row=1, column=2)
+
+        button_1 = Button(root, text=" Reikna ", command=reikna)
+        button_1.grid(columnspan=2)
+
+        button_2 = Button(root, text=" Til baka ", command=kula)
+        button_2.grid(columnspan=3)
+    def flatar():
+        for a in root.winfo_children():
+            a.destroy()
+        def reikna():
+            radius = float(entry_1.get())
+
+            svar = (math.pi * radius ** 2)
+
+            label_2.configure(text=round(svar, 2))
+
+        label_1 = Label(root, text=" Sláðu inn radíus ")
+        label_2 = Label(root, text="")
+        label_3 = Label(root, text="Svar:")
+
+        entry_1 = Entry(root, textvariable=StringVar())
+
+        label_1.grid(row=1, column=1)
+        label_2.grid(row=2, column=2)
+        label_3.grid(row=2, column=1)
+
+        entry_1.grid(row=1, column=2)
+
+        button_1 = Button(root, text=" Reikna ", command=reikna)
+        button_1.grid(columnspan=2)
+
+        button_2 = Button(root, text=" Til baka ", command=kula)
+        button_2.grid(columnspan=3)
+
+
+    label_1 = Label(root, text="Veldu hvað þú vilt gera")
+    button_1 = Button(root, text=" Rúmmál ", command=rummal)
+    button_2 = Button(root, text=" Yfirborðsflatarmál ", command=yfirflat)
+    button_3 = Button(root, text=" Flatarmál Hrings ", command=flatar)
+    button_4 = Button(root, text=" Til baka  ", command=home)
+
+    button_1.grid(row=1, column=1)
+    button_2.grid(row=1, column=2)
+    button_3.grid(row=1, column=3)
+    button_4.grid(row=1, column=4)
+    label_1.grid(columnspan=5)
 def kassi():
     for a in root.winfo_children():
         a.destroy()
+    def flatar():
+        for a in root.winfo_children():
+            a.destroy()
+        def reikna():
+            lengd = float(entry_1.get())
+            breidd = float(entry_2.get())
+
+            svar = lengd * breidd
+
+            label_3.configure(text=round(svar, 2))
+
+        label_1 = Label(root, text=" Sláðu inn Lengd ")
+        label_2 = Label(root, text=" Sláðu inn Breidd ")
+        label_3 = Label(root, text="")
+        label_4 = Label(root, text="Svar:")
+
+        entry_1 = Entry(root, textvariable=StringVar())
+        entry_2 = Entry(root, textvariable=StringVar())
+
+        label_1.grid(row=1, column=1)
+        label_2.grid(row=2, column=1)
+        label_4.grid(row=3, column=1)
+        label_3.grid(row=3, column=2)
+
+        entry_1.grid(row=1, column=2)
+        entry_2.grid(row=2, column=2)
+
+        button_1 = Button(root, text=" Reikna ", command=reikna)
+        button_1.grid(columnspan=2)
+
+        button_2 = Button(root, text=" Til baka ", command=kassi)
+        button_2.grid(columnspan=3)
+
 
     def rummal():
         for a in root.winfo_children():
@@ -280,7 +413,7 @@ def kassi():
     label_1 = Label(root, text = " Veldu hvað þú vilt gera ")
     button_1 = Button(root, text=" Rúmmál ", command=rummal)
     button_2 = Button(root, text=" Yfirborðsflatarmál ", command=yfirflat)
-    button_3 = Button(root, text="*Unactive*", command="")
+    button_3 = Button(root, text="Flatarmál ferhyrnings", command=flatar)
     button_4 = Button(root, text=" Til baka ", command=home)
 
     button_1.grid(row=1, column=1)
@@ -297,7 +430,7 @@ def home():
     label_1 = Label(root, text = "Veldu hvað þú vilt gera")
     button_1 = Button(root, text=" Pýramídi ", command = thry)
     button_2 = Button(root, text=" Kassi ", command = kassi)
-    button_3 = Button(root, text=" *Unactive* ", command = "")
+    button_3 = Button(root, text=" Kúla ", command = kula)
     button_4 = Button(root, text=" Leikir ", command = leikir)
 
     button_1.grid(row = 1, column = 1)

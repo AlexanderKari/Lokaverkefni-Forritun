@@ -651,7 +651,7 @@ def leikir():
                         label_p3 == "O" and label_p6 == "O" and label_p9 == "O") or (
                         label_p1 == "O" and label_p5 == "O" and label_p9 == "O") or (
                         label_p3 == "O" and label_p5 == "O" and label_p7 == "O"):
-                homeG()
+                vinner("O vinnur!")
             elif val == 1:
                 label_p1 = "X"
             elif val == 2:

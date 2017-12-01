@@ -831,16 +831,119 @@ def leikir():
         reset()
         homeT()
     def sbs():
+        global tel1
+        global tel2
+        global tel3
+        tel1 = 0
+        tel2 = 0
+        tel3 = 0
         for a in root.winfo_children():
             a.destroy()
+        def skaeri():
+            global tel1
+            global tel2
+            global tel3
+            tala = random.randint(1, 3)
+            if tala == 1:
+                labelT.configure(text="Tölva: Skæri")
+                labelU.configure(text="Notandi: Skæri")
+                labelV.configure(text="Jafntefli")
+                tel3 = tel3 + 1
+                labelTj.configure(text = tel3)
+            elif tala == 2:
+                labelT.configure(text="Tölva: Blað")
+                labelU.configure(text="Notandi: Skæri")
+                labelV.configure(text="Notandi vinnur")
+                tel1 = tel1 + 1
+                labelTv.configure(text=tel1)
+
+            else:
+                labelT.configure(text="Tölva: Steinn")
+                labelU.configure(text="Notandi: Skæri")
+                labelV.configure(text="Tölva Vinnur")
+                tel2 = tel2 + 1
+                labelTt.configure(text=tel2)
+        def blad():
+            global tel1
+            global tel2
+            global tel3
+            tala = random.randint(1, 3)
+            if tala == 1:
+                labelT.configure(text="Tölva: Skæri")
+                labelU.configure(text = "Notandi: Blað")
+                labelV.configure(text="Tölva Vinnur")
+                tel2 = tel2 + 1
+                labelTt.configure(text=tel2)
+            elif tala == 2:
+                labelT.configure(text="Tölva: Blað")
+                labelU.configure(text="Notandi: Blað")
+                labelV.configure(text="Jafntefli")
+                tel3 = tel3 + 1
+                labelTj.configure(text=tel3)
+            else:
+                labelT.configure(text="Tölva: Steinn")
+                labelU.configure(text="Notandi: Blað")
+                labelV.configure(text="Notandi vinnur")
+                tel1 = tel1 + 1
+                labelTv.configure(text=tel1)
+        def steinn():
+            global tel1
+            global tel2
+            global tel3
+            tala = random.randint(1, 3)
+            if tala == 1:
+                labelT.configure(text="Tölva: Skæri")
+                labelU.configure(text="Notandi: Steinn")
+                labelV.configure(text="Notandi vinnur")
+                tel1 = tel1 + 1
+                labelTv.configure(text=tel1)
+            elif tala == 2:
+                labelT.configure(text="Tölva: Blað")
+                labelU.configure(text="Notandi: Steinn")
+                labelV.configure(text="Tölva vinnur")
+                tel2 = tel2 + 1
+                labelTt.configure(text=tel2 )
+            else:
+                labelT.configure(text="Tölva: Blað")
+                labelU.configure(text="Notandi: Steinn")
+                labelV.configure(text="Jafntefli")
+                tel3 = tel3 + 1
+                labelTj.configure(text=tel3)
+
         button_1 = Button(root, text="Skæri", command = skaeri)
         button_2 = Button(root, text="Blað", command = blad)
         button_3 = Button(root, text="Steinn", command = steinn)
+        button_4 = Button(root, text="Til baka",command = leikir)
+
+        labelT = Label(root, text="")
+        labelU = Label(root, text="")
+        labelV = Label(root, text="")
+
+        labelTtxt = Label(root, text="Sigrar:")
+        labelUtxt = Label(root, text="Töp:")
+        labelVtxt = Label(root, text="Jafntefli:")
+
+        labelTv = Label(root,text=tel1)
+        labelTt = Label(root,text=tel2)
+        labelTj = Label(root, text = tel3)
+
 
         button_1.grid(row=1,column=1)
         button_2.grid(row=2, column=1)
         button_3.grid(row=3, column=1)
+        button_4.grid(columnspan = 5)
 
+        labelT.grid(row=1, column=2)
+        labelU.grid(row=2, column=2)
+        labelV.grid(row=3, column=2)
+
+        labelTtxt.grid(row=1, column=3)
+        labelUtxt.grid(row=2, column=3)
+        labelVtxt.grid(row=3, column=3)
+
+        labelTv.grid(row = 1, column = 4)
+        labelTt.grid(row=2, column=4)
+        labelTj.grid(row=3, column=4)
 
     label_1 = Label(root, text="Veldu hvað þú vilt gera")
     button_1 = Button(root, text=" Skæri, blað, steinn ", command=sbs)
@@ -853,7 +956,6 @@ def leikir():
     button_3.grid(row=1, column=3)
     button_4.grid(row=1, column=4)
     label_1.grid(columnspan=5)
-
 
 
 root = Tk()

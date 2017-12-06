@@ -845,96 +845,97 @@ def leikir():
             global tel3
             tala = random.randint(1, 3)
             if tala == 1:
-                labelT.configure(text="Tölva: Skæri")
                 labelU.configure(text="Notandi: Skæri")
+                labelT.configure(text="Tölva: Skæri")
                 labelV.configure(text="Jafntefli")
                 tel3 = tel3 + 1
-                labelTj.configure(text = tel3)
+                labelTj.configure(text=tel3)
             elif tala == 2:
-                labelT.configure(text="Tölva: Blað")
                 labelU.configure(text="Notandi: Skæri")
+                labelT.configure(text="Tölva: Blað")
                 labelV.configure(text="Notandi vinnur")
                 tel1 = tel1 + 1
                 labelTv.configure(text=tel1)
 
             else:
-                labelT.configure(text="Tölva: Steinn")
                 labelU.configure(text="Notandi: Skæri")
+                labelT.configure(text="Tölva: Steinn")
                 labelV.configure(text="Tölva Vinnur")
                 tel2 = tel2 + 1
                 labelTt.configure(text=tel2)
+
         def blad():
             global tel1
             global tel2
             global tel3
             tala = random.randint(1, 3)
             if tala == 1:
+                labelU.configure(text="Notandi: Blað")
                 labelT.configure(text="Tölva: Skæri")
-                labelU.configure(text = "Notandi: Blað")
                 labelV.configure(text="Tölva Vinnur")
                 tel2 = tel2 + 1
                 labelTt.configure(text=tel2)
             elif tala == 2:
-                labelT.configure(text="Tölva: Blað")
                 labelU.configure(text="Notandi: Blað")
+                labelT.configure(text="Tölva: Blað")
                 labelV.configure(text="Jafntefli")
                 tel3 = tel3 + 1
                 labelTj.configure(text=tel3)
             else:
-                labelT.configure(text="Tölva: Steinn")
                 labelU.configure(text="Notandi: Blað")
+                labelT.configure(text="Tölva: Steinn")
                 labelV.configure(text="Notandi vinnur")
                 tel1 = tel1 + 1
                 labelTv.configure(text=tel1)
+
         def steinn():
             global tel1
             global tel2
             global tel3
             tala = random.randint(1, 3)
             if tala == 1:
-                labelT.configure(text="Tölva: Skæri")
                 labelU.configure(text="Notandi: Steinn")
+                labelT.configure(text="Tölva: Skæri")
                 labelV.configure(text="Notandi vinnur")
                 tel1 = tel1 + 1
                 labelTv.configure(text=tel1)
             elif tala == 2:
-                labelT.configure(text="Tölva: Blað")
                 labelU.configure(text="Notandi: Steinn")
+                labelT.configure(text="Tölva: Blað")
                 labelV.configure(text="Tölva vinnur")
                 tel2 = tel2 + 1
-                labelTt.configure(text=tel2 )
+                labelTt.configure(text=tel2)
             else:
-                labelT.configure(text="Tölva: Blað")
                 labelU.configure(text="Notandi: Steinn")
+                labelT.configure(text="Tölva: Blað")
                 labelV.configure(text="Jafntefli")
                 tel3 = tel3 + 1
                 labelTj.configure(text=tel3)
 
-        button_1 = Button(root, text="Skæri", command = skaeri)
-        button_2 = Button(root, text="Blað", command = blad)
-        button_3 = Button(root, text="Steinn", command = steinn)
-        button_4 = Button(root, text="Til baka",command = leikir)
+        button_1 = Button(root, text="Skæri", command=skaeri)
+        button_2 = Button(root, text="Blað", command=blad)
+        button_3 = Button(root, text="Steinn", command=steinn)
+        button_4 = Button(root, text="Til baka", command=leikir)
 
-        labelT = Label(root, text="")
         labelU = Label(root, text="")
+        labelT = Label(root, text="")
         labelV = Label(root, text="")
 
         labelTtxt = Label(root, text="Sigrar:")
         labelUtxt = Label(root, text="Töp:")
         labelVtxt = Label(root, text="Jafntefli:")
 
-        labelTv = Label(root,text=tel1)
-        labelTt = Label(root,text=tel2)
-        labelTj = Label(root, text = tel3)
+        labelTv = Label(root, text=tel1)
+        labelTt = Label(root, text=tel2)
+        labelTj = Label(root, text=tel3)
 
-
-        button_1.grid(row=1,column=1)
+        button_1.grid(row=1, column=1)
         button_2.grid(row=2, column=1)
         button_3.grid(row=3, column=1)
-        button_4.grid(columnspan = 5)
+        button_4.grid(columnspan=5)
 
-        labelT.grid(row=1, column=2)
-        labelU.grid(row=2, column=2)
+        labelU.grid(row=1, column=2)
+        labelT.grid(row=2, column=2)
         labelV.grid(row=3, column=2)
 
         labelTtxt.grid(row=1, column=3)

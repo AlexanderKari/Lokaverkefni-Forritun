@@ -33,6 +33,7 @@ def reset():
     global fuel
     global maxfuel
     global eydsla
+    global Etel
 
     Sx = 200
     Sy = 200
@@ -64,7 +65,8 @@ def reset():
 
     maxfuel = 100
     fuel = 100
-    eydsla = 10
+    eydsla = 20
+    Etel = 1
 
     sol = []
 
@@ -105,6 +107,10 @@ def key(event):
     for a in listi:
         canvas.delete(a)
     print ("pressed", repr(event.char))
+    global fuel
+    global maxfuel
+    global eydsla
+    global Etel
     global Sx
     global Sy
     global wW
@@ -168,6 +174,9 @@ def key(event):
                     Cx += speed
 
     else:
+        if Etel % eydsla == 0:
+            fuel = fuel - 1
+        Etel += 1
         if event.char == "w":
             if Sy > 8:
                 Sy -=speed
@@ -262,6 +271,16 @@ def key(event):
         homeSS()
     else:
         homeS()
+def emty():
+    global dod
+    global sol
+    dod = True
+    canvas.bind("<Key>", dead)
+    for a in sol:
+        canvas.delete(a)
+    canvas.create_text(wW / 2, wH / 2, text="Ship is out of fuel!", fill="white")
+    canvas.create_rectangle((wW / 2) - 50, (wH / 2) + 10, (wW / 2) + 50, (wH / 2) + 50, fill="grey")
+    canvas.create_text(wW / 2, (wH / 2) + 30, text="Restart", fill="white", anchor="center")
 #Dautt fall(bara svo að þegar þú ert dauður getur ekki haldið áfram)
 def dead(key):
     pass
@@ -347,9 +366,9 @@ def homeS():
     global room
     global Dr
     global dod
-    #print(room)
+    global maxfuel
+    global fuel
     if room == Dr:
-        #print("yay")
         dot = canvas.create_circle(Dx, Dy, 3, fill="yellow")
     if dod == False:
         if fY == "s":
@@ -372,8 +391,14 @@ def homeS():
             listi.append(canvas.create_circle(Sx - 4, Sy, 3, fill="grey", outline=""))
             listi.append(canvas.create_circle(Sx- 6, Sy , 3, fill="grey", outline=""))
         if Sx-3 <= Dx+3 and Sx+3 >= Dx-3 and Sy-3 <= Dy+3 and Sy+3 >= Dy-3 and room == Dr:
+            fuel = fuel + 10
+            if fuel > maxfuel:
+                fuel = maxfuel
             new_dot()
+        if fuel == 0:
+            emty()
     listi.append(canvas.create_text(wW - 10, 10, text="Stig: "+str(tel), width=100, anchor=NE, fill="white"))
+    listi.append(canvas.create_text(0 + 10, 10, text="Fuel: "+str(fuel), width = 100, anchor = NW, fill="white"))
 #Til að búa til stjörnur
 def stars(numb,x1,y1 ,x2,y2):
     global canvas
@@ -485,7 +510,3 @@ def sR3():
 root = Tk()
 reset()
 root.mainloop()
-
-
-
-
